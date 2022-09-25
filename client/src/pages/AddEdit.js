@@ -17,7 +17,7 @@ const AddEdit = ()=>{
     const {id}=useParams();
 
     useEffect(()=>{
-     axios.get(`http://localhost:5000/api/get/${id}`).then((resp)=>setState({...resp.data[0]}));
+     axios.get(`/api/get/${id}`).then((resp)=>setState({...resp.data[0]}));
     },[id]);
 
     const HandleSubmit=(e)=>{
@@ -26,7 +26,7 @@ const AddEdit = ()=>{
         toast.error("Please enter the value in each input field");
        }else{
         if(!id){
-            axios.post("http://localhost:5000/api/post",{
+            axios.post("/api/post",{
             name,
             email,
             contact
@@ -35,7 +35,7 @@ const AddEdit = ()=>{
         }).catch((err)=>{ console.log(err.response.data);})
         toast.success("Contact Added Sucessfully")
         }else{
-            axios.put(`http://localhost:5000/api/update/${id}`,{
+            axios.put(`/api/update/${id}`,{
                 name,
                 email,
                 contact

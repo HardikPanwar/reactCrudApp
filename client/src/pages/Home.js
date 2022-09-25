@@ -8,7 +8,7 @@ const Home = () => {
 
 
     const loadData=async()=>{
-      const response =await axios.get("http://localhost:5000/api/get");
+      const response =await axios.get("/api/get");
       setData(response.data);
     } 
 
@@ -17,7 +17,7 @@ const Home = () => {
     } ,[]);
     const deleteContact = (id)=>{
       if(window.confirm("Are you sure that you wanted to delrte that contact"));
-      axios.delete(`http://localhost:5000/api/remove/${id}`);
+      axios.delete(`/api/remove/${id}`);
       toast.success("Contact deleted Sucessfully");
       setTimeout(() => loadData(),500);
     }
