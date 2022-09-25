@@ -8,7 +8,7 @@ const Home = () => {
 
 
     const loadData=async()=>{
-      const response =await axios.get("/api/get");
+      const response =await axios.get("/");
       setData(response.data);
     } 
 
